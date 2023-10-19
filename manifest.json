@@ -1,22 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "LinkedIn Hide Promoted Content",
-  "description": "Extension to automatically hide promoted content in LinkedIn Feed",
+  "name": "My LinkedIn Content Hider",
   "version": "1.0",
-  "icons": {
-    "16": "16.png",
-    "48": "48.png",
-    "128": "128.png"
+  "description": "Extension to hide LinkedIn content",
+  "permissions": ["storage", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
   },
   "action": {
-    "default_icon": "16.png",
     "default_popup": "popup.html"
   },
-  "permissions": ["storage"],
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
-      "matches": ["https://www.linkedin.com/feed/"]
+      "matches": ["*://www.linkedin.com/*"],
+      "js": ["scripts/content.js"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
 }

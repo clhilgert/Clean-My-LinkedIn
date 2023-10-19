@@ -1,7 +1,7 @@
 html {
-  width: 200px;
-  height: 310px;
-  background-color: #f5ecda;
+  width: 180px;
+  height: 220px;
+  background-color: #e1e6f3;
 }
 body {
   display: flex;
@@ -11,7 +11,13 @@ body {
   text-align: center;
 }
 
-/* The switch - the box around the slider */
+hr {
+  color: rgb(173, 0, 0);
+  border-style: dashed;
+  size: "2";
+  width: 80%;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -19,14 +25,14 @@ body {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -65,7 +71,7 @@ input:checked+.slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
+
 .slider.round {
   border-radius: 34px;
 }

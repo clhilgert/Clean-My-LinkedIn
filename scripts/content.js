@@ -1,55 +1,24 @@
-const promotedCheckbox = document.getElementById("promoted");
-const suggestedCheckbox = document.getElementById("suggested");
-
-function saveState() {
-  chrome.storage.sync.set({
-    promotedChecked: promotedCheckbox.checked,
-    suggestedChecked: suggestedCheckbox.checked,
-  });
-}
-
-function loadState() {
-  chrome.storage.sync.get({
-    promotedChecked: false,
-    suggestedChecked: false,
-  }, (items) => {
-    if (promotedCheckbox) {
-      promotedCheckbox.checked = items.promotedChecked;
+chrome.storage.local.get(["promotedChecked", "suggestedChecked"], function (result) {
+  if (chrome.runtime.lastError) {
+    console.error(chrome.runtime.lastError);
+  } else {
+    const promotedChecked = result.promotedChecked;
+    console.log(promotedChecked, "content")
+    const suggestedChecked = result.suggestedChecked;
+    if (promotedChecked || suggestedChecked) {
+      runScripts();
     }
-    if (suggestedCheckbox) {
-      suggestedCheckbox.checked = items.suggestedChecked;
-    }
-  });
-}
+    console.log("promotedChecked:", promotedChecked);
+    console.log("suggestedChecked:", suggestedChecked);
 
-if (promotedCheckbox) {
-  promotedCheckbox.addEventListener("click", () => {
-    findAndDeleteRelative(document);
-    saveState();
-  });
-}
-
-if (suggestedCheckbox) {
-  suggestedCheckbox.addEventListener("click", () => {
-    saveState();
-  });
-}
-
-window.addEventListener('load', () => {
-  loadState();
-});
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message === "popupOpened") {
-    loadState();
   }
 });
 
-function findAndDeleteRelative(targetNode) {
-  const spans = targetNode.querySelectorAll('span');
+function runScripts() {
 
-  if (promotedCheckbox.checked) {
-    console.log(promotedCheckbox, " in function");
+  function findAndDeleteRelative(targetNode) {
+    const spans = targetNode.querySelectorAll('span');
+
     for (const span of spans) {
       if (span.textContent.includes("Promoted")) {
         let currentNode = span.parentElement;
@@ -65,23 +34,24 @@ function findAndDeleteRelative(targetNode) {
       }
     }
   }
-}
 
-window.addEventListener('load', () => {
-  console.log(promotedCheckbox, " outside function");
-  findAndDeleteRelative(document);
+  window.addEventListener('load', () => {
+    findAndDeleteRelative(document);
 
-  const observer = new MutationObserver((mutationsList, observer) => {
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'childList') {
-        for (const addedNode of mutation.addedNodes) {
-          if (addedNode.nodeType === Node.ELEMENT_NODE) {
-            findAndDeleteRelative(addedNode);
+    const observer = new MutationObserver((mutationsList, observer) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          for (const addedNode of mutation.addedNodes) {
+            if (addedNode.nodeType === Node.ELEMENT_NODE) {
+              findAndDeleteRelative(addedNode);
+            }
           }
         }
       }
-    }
-  });
+    });
 
-  observer.observe(document, { childList: true, subtree: true });
-});
+    observer.observe(document, { childList: true, subtree: true });
+  });
+}
+
+
