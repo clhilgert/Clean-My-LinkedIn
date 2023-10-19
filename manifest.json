@@ -1,14 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "My LinkedIn Content Hider",
+  "name": "Clean My LinkedIn",
   "version": "1.0",
-  "description": "Extension to hide LinkedIn content",
+  "description": "Extension to hide LinkedIn Unwanted LinkedIn Content",
   "permissions": ["storage", "activeTab"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": "images/icon128.png"
   },
   "content_scripts": [
     {
