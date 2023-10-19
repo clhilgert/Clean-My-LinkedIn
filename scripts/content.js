@@ -3,14 +3,10 @@ chrome.storage.local.get(["promotedChecked", "suggestedChecked"], function (resu
     console.error(chrome.runtime.lastError);
   } else {
     const promotedChecked = result.promotedChecked;
-    console.log(promotedChecked, "content")
     const suggestedChecked = result.suggestedChecked;
     if (promotedChecked || suggestedChecked) {
       runScripts();
     }
-    console.log("promotedChecked:", promotedChecked);
-    console.log("suggestedChecked:", suggestedChecked);
-
   }
 });
 

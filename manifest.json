@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Clean My LinkedIn",
   "version": "1.0",
-  "description": "Extension to hide LinkedIn Unwanted LinkedIn Content",
+  "description": "Extension to hide promoted LinkedIn Content",
   "permissions": ["storage"],
   "background": {
     "service_worker": "background.js"

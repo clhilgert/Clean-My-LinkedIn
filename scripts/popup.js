@@ -8,8 +8,6 @@ function saveCheckboxState() {
   }, function () {
     if (chrome.runtime.lastError) {
       console.error(chrome.runtime.lastError);
-    } else {
-      console.log("Checkbox state saved successfully.");
     }
   });
 }
