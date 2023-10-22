@@ -14,7 +14,7 @@ function saveCheckboxState() {
 
 
 function loadCheckboxState() {
-  chrome.storage.local.get(["promotedChecked", "suggestedChecked"], function (result) {
+  chrome.storage.local.get(["promotedChecked"], function (result) {
     const promotedChecked = result.promotedChecked;
     promotedCheckbox.checked = promotedChecked;
   });
