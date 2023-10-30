@@ -11,13 +11,17 @@
 
 To install this extension, follow these steps:
 
+1. Navigate to [Clean My LinkedIn](https://chrome.google.com/webstore/detail/clean-my-linkedin/kgkmlelpkpcepphkhccpgegbkflnjgdl?hl=en&authuser=0) in the Chrome Web Store.
+2. Click "Add to Chrome"
+3. Pin the extension to your taskbar and enable blocking content.
+
+Alternatively, you can manually install this extension from this repository.
+
 1. Clone this repository to your local machine.
 2. Open your Chromium-based web browser (e.g., Google Chrome).
 3. Go to the browser's extension settings.
 4. Enable the 'Developer mode'.
 5. Click on 'Load Unpacked' and select the directory where you cloned this repository.
-
-Please note that a Chrome Web Store version is currently in progress.
 
 ## Contributing
 
