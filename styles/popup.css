@@ -9,6 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  user-select: none;
 }
 
 hr {
@@ -80,7 +81,6 @@ input:checked + .slider:before {
   align-self: flex-end;
   margin-top: 0;
   margin-bottom: 0;
-  cursor: pointer;
   display: flex;
   align-items: center;
 }
@@ -93,6 +93,7 @@ input:checked + .slider:before {
 
 .linkbox a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .github {
