@@ -4,7 +4,7 @@
   <img src="images/icon128.png" alt="Extension Logo">
   
 </div>
-<div align="center">Chrome extension to hide unwanted LinkedIn promoted content.
+<div align="center">Chrome extension to hide unwanted LinkedIn promoted and suggested content.
 </div>
 
 ## Installation
