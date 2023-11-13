@@ -23,6 +23,15 @@ Alternatively, you can manually install this extension from this repository.
 4. Enable the 'Developer mode'.
 5. Click on 'Load Unpacked' and select the directory where you cloned this repository.
 
+### 1.0.0 - Initial release of Clean My LinkedIn
+
+<details><summary>1.1.0</summary>
+  <ul>
+    <li>Added slider and functionality for hiding Suggested content</li>
+    <li>Updated popup styles</li>
+  </ul>
+</details>
+
 ## Contributing
 
 If you'd like to contribute to this project, please open an issue or a pull request.
