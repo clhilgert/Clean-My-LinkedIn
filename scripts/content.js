@@ -1,21 +1,9 @@
-chrome.storage.local.get(["promotedChecked"], function (result) {
-  if (chrome.runtime.lastError) {
-    console.error(chrome.runtime.lastError);
-  } else {
-    const promotedChecked = result.promotedChecked;
-    if (promotedChecked) {
-      runScripts();
-    }
-  }
-});
-
-function runScripts() {
-
+function runScripts(checkBoxName, keyword) {
   function findAndDeleteRelative(targetNode) {
     const spans = targetNode.querySelectorAll('span');
 
     for (const span of spans) {
-      if (span.textContent.includes("Promoted")) {
+      if (span.textContent.includes(keyword)) {
         let currentNode = span.parentElement;
         while (currentNode) {
           if (currentNode.classList.contains("full-height")) {
@@ -46,7 +34,26 @@ function runScripts() {
     });
 
     observer.observe(document, { childList: true, subtree: true });
+    window.scrollTo(0, initialScrollTop);
   });
 }
+
+chrome.storage.local.get(["promotedChecked", "suggestedChecked"], function (result) {
+  if (chrome.runtime.lastError) {
+    console.error(chrome.runtime.lastError);
+  } else {
+    const promotedChecked = result.promotedChecked;
+    const suggestedChecked = result.suggestedChecked;
+
+    if (promotedChecked) {
+      runScripts("promotedChecked", "Promoted");
+    }
+
+    if (suggestedChecked) {
+      runScripts("suggestedChecked", "Suggested");
+    }
+  }
+});
+
 
 
