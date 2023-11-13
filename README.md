@@ -5,6 +5,7 @@
   
 </div>
 <div align="center">Chrome extension to hide promoted and suggested content on LinkedIn.
+
 </div>
 
 ## Installation
@@ -13,7 +14,14 @@ To install this extension, follow these steps:
 
 1. Navigate to [Clean My LinkedIn](https://chrome.google.com/webstore/detail/clean-my-linkedin/kgkmlelpkpcepphkhccpgegbkflnjgdl?hl=en&authuser=0) in the Chrome Web Store.
 2. Click "Add to Chrome"
-3. Pin the extension to your taskbar and enable blocking content.
+3. Pin the extension to your taskbar and click on the icon to open the menu.
+4. Check the desired sliders to hide content.
+
+<br/>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/clhilgert/Clean-My-LinkedIn/main/images/popup.png"></img>
+</div>
+<br/>
 
 Alternatively, you can manually install this extension from this repository.
 
